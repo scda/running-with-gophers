@@ -15,5 +15,3 @@ go api capabilities under investigation
 
 - [gorm](https://gorm.io/docs/)
 - [iris](https://github.com/kataras/iris)
-
-- [api example project](https://github.com/snowlyg/IrisApiProject)
