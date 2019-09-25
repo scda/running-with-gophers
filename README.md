@@ -4,7 +4,8 @@ go api capabilities under investigation
 ## todo
 - API endpoints
 - ORM
-- logger
+- logging
+- entity/dto translation?
 - security / login/ ...
 
 ## resources
