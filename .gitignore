@@ -5,6 +5,9 @@
 *.so
 *.dylib
 
+# build output folder
+/bin
+
 # Test binary, build with `go test -c`
 *.test
 
@@ -13,3 +16,6 @@
 
 # sqlite
 *.db
+
+# IDE folders
+.idea/

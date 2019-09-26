@@ -20,11 +20,11 @@ func initApp() (api *iris.Application) {
 	api.Use(logger.New())
 
 	api.OnErrorCode(iris.StatusNotFound, func(ctx iris.Context) {
-		ctx.WriteString("404 not found")
+		_, _ = ctx.WriteString("404 not found")
 	})
 
 	api.OnErrorCode(iris.StatusInternalServerError, func(ctx iris.Context) {
-		ctx.WriteString("Something went wrong. Try again later.")
+		_, _ = ctx.WriteString("Something went wrong. Try again later.")
 	})
 
 	iris.RegisterOnInterrupt(func() {
@@ -45,7 +45,7 @@ func initApp() (api *iris.Application) {
 		v1.PartyFunc("/users", func(users router.Party) {
 			//TODO : ENABLE users.Get("/", controllers.GetAllUsers)
 			users.Get("/{id:uint}", controllers.GetUser)
-			//TODO : ENABLE users.Post("/", controllers.CreateUser)
+			users.Post("/", controllers.CreateUser)
 			//TODO : ENABLE users.Put("/{id:uint}", controllers.UpdateUser)
 			//TODO : ENABLE users.Delete("/{id:uint}", controllers.DeleteUser)
 		})
@@ -57,5 +57,5 @@ func initApp() (api *iris.Application) {
 func main() {
 
 	app := initApp()
-	app.Run(iris.Addr(":8080"))
+	_ = app.Run(iris.Addr(":8080"))
 }

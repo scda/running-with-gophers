@@ -28,3 +28,13 @@ func GetUserByID(id uint) *User {
 
 	return user
 }
+
+// CreateUser creates a new user entry
+func CreateUser(user *User) *User {
+	if err := database.DB.Create(user).Error; err != nil {
+		log.Println("GetUserByIdErr: ", err)
+		return nil
+	}
+
+	return user
+}

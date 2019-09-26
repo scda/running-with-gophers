@@ -43,6 +43,6 @@ func Connect() {
 func Disconnect() {
 	log.Println("disconnecting database ...")
 
-	databaseConnection.Close()
+	_ = databaseConnection.Close()
 	initialized = false
 }
