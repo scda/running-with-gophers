@@ -43,7 +43,7 @@ func initApp() (api *iris.Application) {
 	{
 		v1.Get("/health", controllers.GetHealth)
 		v1.PartyFunc("/users", func(users router.Party) {
-			//TODO : ENABLE users.Get("/", controllers.GetAllUsers)
+			users.Get("/", controllers.GetUsers)
 			users.Get("/{id:uint}", controllers.GetUser)
 			users.Post("/", controllers.CreateUser)
 			//TODO : ENABLE users.Put("/{id:uint}", controllers.UpdateUser)

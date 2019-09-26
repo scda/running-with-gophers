@@ -16,6 +16,15 @@ type User struct {
 	Email string
 }
 
+// GetUsers returns all users found
+func GetUsers() (users []*User) {
+	if err := database.DB.Find(&users).Error; err != nil {
+		log.Println("GetUsersErr:")
+		return nil
+	}
+	return
+}
+
 // GetUserByID returns single user object searched by ID
 func GetUserByID(id uint) *User {
 	user := new(User)
@@ -32,7 +41,7 @@ func GetUserByID(id uint) *User {
 // CreateUser creates a new user entry
 func CreateUser(user *User) *User {
 	if err := database.DB.Create(user).Error; err != nil {
-		log.Println("GetUserByIdErr: ", err)
+		log.Println("CreateUserErr: ", err)
 		return nil
 	}
 

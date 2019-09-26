@@ -8,6 +8,13 @@ import (
 	"github.com/kataras/iris"
 )
 
+// GetUsers receives a list of user entries
+func GetUsers(ctx iris.Context) {
+	users := models.GetUsers()
+
+	_, _ = ctx.JSON(users)
+}
+
 // GetUser By Id
 func GetUser(ctx iris.Context) {
 	id, _ := ctx.Params().GetUint("id")
